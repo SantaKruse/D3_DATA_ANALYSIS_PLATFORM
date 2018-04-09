@@ -39,8 +39,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry'
-  gem 'guard', '~> 2.14.1'
-  gem 'guard-minitest', '~> 2.4.6'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :development do

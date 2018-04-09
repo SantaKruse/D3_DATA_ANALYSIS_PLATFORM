@@ -1,0 +1,2 @@
+class VizOne < ApplicationRecord
+end

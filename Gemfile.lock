@@ -188,8 +188,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   faker (~> 1.8.7)
-  guard (~> 2.14.1)
-  guard-minitest (~> 2.4.6)
+  guard
+  guard-minitest
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
