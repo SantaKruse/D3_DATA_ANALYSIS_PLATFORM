@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Project KIP</title>
-	<link rel="stylesheet" href="MAIN.CSS">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Press+Start+2P|Quicksand" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
 	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
@@ -21,7 +20,32 @@
     <div class="main">
     	<div class="main-flex">
 	    	<div class="side-bar">
-				<div class="side-bar-item measure">
+				<%= form_tag viz1_index_url, :method => 'get', :id => "viz1_search" do %>
+				  <p>
+				    <%= text_field_tag :year %>
+				    <%= text_field_tag :sex %>
+				    <%= check_box_tag 'ethnicity[]', "White"%>
+   					<%= check_box_tag 'ethnicity[]', "Asian"%>
+   					<%= radio_button_tag 'ccg', 'Lambeth'%>
+   					<%= radio_button_tag 'ccg', 'Southwark'%>
+				    <%= submit_tag "Search", :name => nil %>
+				  </p>
+				<% end %>
+	    	</div>
+	       	<div class="plot">
+	       		<div class="plot-item">
+	       			<% if @data %>
+		       			<% @data.each do |row| %>
+		       				<p><%= row.year %></p>
+		       			<% end %>
+		       		<% end %>
+	       		</div>
+	    	</div>
+    	</div>
+    </div>    
+</div>
+
+<!-- 				<div class="side-bar-item measure">
 	    			<h2>Measure (y-axis)</h2>
 	    			<div class="measure-list">
 						<label class="radio-container">HbA1c
@@ -141,19 +165,11 @@
 	    		</div>
 				<div class="side-bar-item controls">
 					<div class="control-year">
-	    				<input type="text" value=2009 disabled="true" name="year" id="year" value="year">
+	    				<input type="text" value=2009 name="year" id="year" value="year">
 	    			</div>
 	    			<div class="control-list">
 						<button class="btn"><i class="far fa-arrow-alt-circle-left fa-2x"></i></button>
 						<button class="btn"><i class="far fa-play-circle fa-2x"></i></button>
 						<button class="btn"><i class="far fa-arrow-alt-circle-right fa-2x"></i></button>
 					</div>
-	    		</div>
-	    	</div>
-	       	<div class="plot">
-	       		<div class="plot-item">
-	       		</div>
-	    	</div>
-    	</div>
-    </div>    
-</div>
+	    		</div> -->
