@@ -152,6 +152,24 @@
 	    	</div>
 	       	<div class="plot">
 	       		<div class="plot-item">
+	       			<table>
+	       				<tbody>
+			       			<% @viz_ones.each do |viz_one| %>
+			       				<tr>
+				       				<td><%= viz_one.measure %></td>
+				       				<td><%= viz_one.year %></td>
+				       				<td><%= viz_one.start_year %></td>
+				       				<td><%= viz_one.ethnicity %></td>
+				       				<td><%= viz_one.sex %></td>
+				       				<td><%= viz_one.diabetes_type %></td>
+				       				<td><%= viz_one.deprivation %></td>
+				       				<td><%= viz_one.ccg %></td>
+				       				<td><%= viz_one.baseline_group %></td>
+				       				<td><%= viz_one.measure_result %></td>
+			       				</tr>
+			       			<% end -%>
+		       			</tbody>
+	       			</table>
 	       		</div>
 	    	</div>
     	</div>

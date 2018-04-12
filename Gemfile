@@ -41,6 +41,7 @@ group :development, :test do
   gem 'pry'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'rails-controller-testing'
 end
 
 group :development do
