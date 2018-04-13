@@ -1,19 +1,14 @@
 $(document).ready(function() {
 
   $(document)
-  .on('change', '.filter_checkbox', function() {
-    filterLists()
-  })
-
-  $(document)
-  .on('click', '.btn', function() {
+  .on('change', '.filter_checkbox, .year-box', function() {
     filterLists()
   })
 
 
   function filterLists() {
     var form = $('#filter_form')
-
+    console.log('hello ryan')
     $.ajax({
       url: form.attr('action'),
       type: 'post',
@@ -23,6 +18,15 @@ $(document).ready(function() {
       }
     })
   }
+
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+
+
 
 })
 

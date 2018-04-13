@@ -20,8 +20,4 @@ class VizOnesController < ApplicationController
     @viz_ones = VizOne.all
   end
 
-  def search_params
-    params.require(:viz_one).permit(:ethnicity, :sex, :diabetes_type, :year)
-  end
-
 end
