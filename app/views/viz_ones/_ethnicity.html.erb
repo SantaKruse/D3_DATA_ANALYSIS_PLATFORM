@@ -1,32 +1,27 @@
 <h3>Ethnicity</h3>
 <div class="filter-list-1">
-
-  <div class="checkbox-container">
-    <%= label_tag "White" %>
-    <%= check_box_tag(:ethnicity, "White", true, :class => 'checkbox-checkmark') %>
-  <!-- <label class="checkbox-container">White
-    <input type="checkbox" checked="checked" name="filter-list-1" id="filter-list-1-white" value="WHITE">
+  <label class="checkbox-container">White
+    <%= check_box_tag('ethnicity[]', "White", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
-  </label> -->
-<!--
+  </label>
+
   <label class="checkbox-container">Asian or Asian British
-    <input type="checkbox" checked="checked" name="filter-list-1" id="filter-list-1-asian" value="ASIAN">
+    <%= check_box_tag('ethnicity[]', "Asian or Asian British", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
   </label>
 
   <label class="checkbox-container">Black or Black British
-    <input type="checkbox" checked="checked" name="filter-list-1" id="filter-list-1-black" value="BLACK">
+    <%= check_box_tag('ethnicity[]', "Black or Black British", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
   </label>
 
   <label class="checkbox-container">Mixed
-    <input type="checkbox" checked="checked" name="filter-list-1" id="filter-list-1-mixed" value="MIXED">
+    <%= check_box_tag('ethnicity[]', "Mixed", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
   </label>
 
   <label class="checkbox-container">Other Ethnic Groups
-    <input type="checkbox" checked="checked" name="filter-list-1" id="filter-list-1-other" value="OTHER">
+    <%= check_box_tag('ethnicity[]', "Other Ethnic Groups", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
-  </label> -->
-  </div>
+  </label>
 </div>

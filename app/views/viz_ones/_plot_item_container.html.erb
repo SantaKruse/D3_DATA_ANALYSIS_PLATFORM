@@ -1,20 +1,22 @@
-<div id="plot-item-container" class="plot-item">
-	<table>
-		<tbody>
-			<% @viz_ones.each do |viz_one| %>
-				<tr>
- 				<td><%= viz_one.measure %></td>
- 				<td><%= viz_one.year %></td>
- 				<td><%= viz_one.start_year %></td>
- 				<td><%= viz_one.ethnicity %></td>
- 				<td><%= viz_one.sex %></td>
- 				<td><%= viz_one.diabetes_type %></td>
- 				<td><%= viz_one.deprivation %></td>
- 				<td><%= viz_one.ccg %></td>
- 				<td><%= viz_one.baseline_group %></td>
- 				<td><%= viz_one.measure_result %></td>
-				</tr>
-			<% end -%>
-		</tbody>
-	</table>
-</div>
+<table>
+	<tbody>
+    <% if @viz_ones.present? %>
+      <% @viz_ones.each do |viz_one| %>
+        <tr>
+          <td>Measure: <%= viz_one.measure %></td>
+          <td>Year: <%= viz_one.year %></td>
+          <td>Start_year: <%= viz_one.start_year %></td>
+          <td>Ethnicity: <%= viz_one.ethnicity %></td>
+          <td>Sex: <%= viz_one.sex %></td>
+          <td>Diabetes_type: <%= viz_one.diabetes_type %></td>
+          <td>Deprivation: <%= viz_one.deprivation %></td>
+          <td>CCG: <%= viz_one.ccg %></td>
+          <td>Baseline_group: <%= viz_one.baseline_group %></td>
+          <td>Measure_result: <%= viz_one.measure_result %></td>
+        </tr>
+      <% end -%>
+    <% else -%>
+      No results.
+    <% end -%>
+	</tbody>
+</table>

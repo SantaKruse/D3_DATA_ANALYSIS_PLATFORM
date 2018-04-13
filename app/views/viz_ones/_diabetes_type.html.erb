@@ -3,22 +3,22 @@
   <h3>Diabetes Type</h3>
     <div class="filter-list-3">
     <label class="checkbox-container">Type 1
-      <input type="checkbox" checked="checked" name="filter-list-3" id="filter-list-3-t1" value="T1">
+      <%= check_box_tag('diabetes_type[]', "Type 1", true, {:multiple => true, :class => 'filter_checkbox'}) %>
       <span class="checkbox-checkmark"></span>
     </label>
 
     <label class="checkbox-container">Type 2
-      <input type="checkbox" checked="checked" name="filter-list-3" id="filter-list-3-t2" value="T2">
+      <%= check_box_tag('diabetes_type[]', "Type 2", true, {:multiple => true, :class => 'filter_checkbox'}) %>
       <span class="checkbox-checkmark"></span>
     </label>
 
     <label class="checkbox-container">GDM
-      <input type="checkbox" checked="checked" name="filter-list-3" id="filter-list-3-gdm" value="GDM">
+      <%= check_box_tag('diabetes_type[]', "GDM", true, {:multiple => true, :class => 'filter_checkbox'}) %>
       <span class="checkbox-checkmark"></span>
     </label>
 
     <label class="checkbox-container">Other
-      <input type="checkbox" checked="checked" name="filter-list-3" id="filter-list-3-other" value="OTHER">
+      <%= check_box_tag('diabetes_type[]', "Other", true, {:multiple => true, :class => 'filter_checkbox'}) %>
       <span class="checkbox-checkmark"></span>
     </label>
   </div>

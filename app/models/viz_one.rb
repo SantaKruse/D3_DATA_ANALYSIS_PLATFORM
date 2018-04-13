@@ -38,7 +38,8 @@ class VizOne < ApplicationRecord
     results = results.where('sex IN (?)', params[:sex]) if params[:sex].present?
     results = results.where('diabetes_type IN (?)', params[:diabetes_type]) if params[:diabetes_type].present?
     results = results.where('ccg IN (?)', params[:ccg]) if params[:ccg].present?
-    results
+    # If no matched results, return empty array
+    results.is_a?(VizOne::ActiveRecord_Relation) ? results : []
   end
 
 

@@ -1,12 +1,12 @@
 <h3>Sex</h3>
   <div class="filter-list-2">
   <label class="checkbox-container">Female
-    <input type="checkbox" checked="checked" name="filter-list-2" id="filter-list-2-female" value="FEMALE">
+    <%= check_box_tag('sex[]', "Female", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
   </label>
 
   <label class="checkbox-container">Male
-    <input type="checkbox" checked="checked" name="filter-list-2" id="filter-list-2-male" value="MALE">
+    <%= check_box_tag('sex[]', "Male", true, {:multiple => true, :class => 'filter_checkbox'}) %>
     <span class="checkbox-checkmark"></span>
   </label>
 </div>
