@@ -6,11 +6,12 @@ class VizOnesController < ApplicationController
 	end
 
   def search
-    @viz_ones = VizOne.search(search_params)
+    @viz_ones = VizOne.search(params)
 
-    respond_to do |format|
-      format.js
-    end
+    # This is going to render the partial, which will behanlded by viz_one.js
+    render(:json => {
+      :html => render_to_string(:partial => 'viz_ones/plot_item_container'),
+    })
   end
 
   private

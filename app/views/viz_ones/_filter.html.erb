@@ -1,0 +1,8 @@
+<div class="side-bar-item filters">
+  <h2>Filters</h2>
+  <%= form_tag(search_viz_ones_path, :method => :put) do %>
+    <%= render('viz_ones/ethnicity') %>
+    <%= render('viz_ones/sex') %>
+    <%= render('viz_ones/diabetes_type') %>
+  <% end -%>
+</div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
     resources :viz_ones, only: [:index] do
       collection do
-        get :search
+        put :search
       end
     end
 

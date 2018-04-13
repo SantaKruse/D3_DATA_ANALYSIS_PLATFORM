@@ -14,7 +14,7 @@ class VizOnesControllerTest < ActionDispatch::IntegrationTest
     #*******************************************
     # Searching by ethnicity
     #*******************************************
-    get search_viz_ones_url(:viz_one => {:ethnicity => "White"}), xhr: true
+    put search_viz_ones_url({:ethnicity => "White"}), xhr: true
     assert_response(:success)
     assert_equal(1,
       assigns[:viz_ones].count,
@@ -23,11 +23,23 @@ class VizOnesControllerTest < ActionDispatch::IntegrationTest
       assigns[:viz_ones].first,
       "Should include #{viz_ones(:viz_one_white)} as search result")
 
+    put search_viz_ones_url({:ethnicity => ["White", "Black or Black British"]}), xhr: true
+    assert_response(:success)
+    assert_equal(2,
+      assigns[:viz_ones].count,
+      "Should have one result")
+    assert_equal([
+      viz_ones(:viz_one_white),
+      viz_ones(:viz_one_black)
+      ],
+      assigns[:viz_ones],
+      "Should return white and black")
+
 
     #*******************************************
     # Searching by sex
     #*******************************************
-    get search_viz_ones_url(:viz_one => {:sex => "female"}), xhr: true
+    put search_viz_ones_url({:sex => "Female"}), xhr: true
     assert_response(:success)
     assert_equal(2,
       assigns[:viz_ones].count,
@@ -43,7 +55,7 @@ class VizOnesControllerTest < ActionDispatch::IntegrationTest
     #*******************************************
     # Searching by diabetes_type
     #*******************************************
-    get search_viz_ones_url(:viz_one => {:diabetes_type => "Type1"}), xhr: true
+    put search_viz_ones_url({:diabetes_type => "Type1"}), xhr: true
     assert_response(:success)
     assert_equal(2,
       assigns[:viz_ones].count,
@@ -54,6 +66,23 @@ class VizOnesControllerTest < ActionDispatch::IntegrationTest
       ],
       assigns[:viz_ones],
       "Should return two results with specified diabetes_type")
+
+
+    #*******************************************
+    # Searching by ccg
+    #*******************************************
+    put search_viz_ones_url({:ccg => "Southwark"}), xhr: true
+    assert_response(:success)
+    assert_equal(3,
+      assigns[:viz_ones].count,
+      "Should have three results with ccq Southwark")
+    assert_equal([
+      viz_ones(:viz_one_white),
+      viz_ones(:viz_one_asian),
+      viz_ones(:viz_one_mixed),
+      ],
+      assigns[:viz_ones],
+      "Should return trhee results with specified ccg type")
   end
 
 end
