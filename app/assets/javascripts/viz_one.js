@@ -5,6 +5,12 @@ $(document).ready(function() {
     filterLists()
   })
 
+   $(document)
+  .on('click', '.btn', function() {
+    filterLists()
+  })
+
+
 
   function filterLists() {
     var form = $('#filter_form')
