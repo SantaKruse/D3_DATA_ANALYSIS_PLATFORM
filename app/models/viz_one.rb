@@ -14,24 +14,6 @@
 
 class VizOne < ApplicationRecord
 
-  module Ethnicity
-    WHITE = 1
-    ASIAN = 2
-    BLACK = 3
-    MIXED = 4
-    OTHER = 5
-  end
-
-  def ethnicities_map
-    {
-      Ethnicity::WHITE => 'White',
-      Ethnicity::ASIAN => 'Asian or Asian British',
-      Ethnicity::BLACK => 'Black or Black British',
-      Ethnicity::MIXED => 'Mixed',
-      Ethnicity::OTHER => 'Other Ethnic Groups',
-    }
-  end
-
   def self.search(params)
     results = self
     results = results.where('ethnicity IN (?)', params[:ethnicity]) if params[:ethnicity].present?

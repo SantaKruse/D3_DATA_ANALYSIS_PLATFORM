@@ -17,7 +17,6 @@ $(document).ready(function() {
         $('#plot-item-container').html(response.html);
       }
     })
-
   }
 
 
