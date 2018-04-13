@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-    root 'viz1#index'
-    
-    resources :viz1, only: [:index]
-    
+    root to: 'viz_ones#index'
+
+    resources :viz_ones, only: [:index] do
+      collection do
+        post :search
+      end
+    end
+
 end

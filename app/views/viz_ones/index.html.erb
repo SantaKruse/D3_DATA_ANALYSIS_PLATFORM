@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project KIP</title>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Press+Start+2P|Quicksand" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.js"></script>
+</head>
+
+<body>
+<div class="wrapper">
+    <header>
+      <div>
+          <h1>KHP-D Interactive Platform</h1>
+        </div>
+    </header>
+
+    <div class="main">
+      <div class="main-flex">
+        <% # Side bar items %>
+        <%= render('viz_ones/measure') %>
+        <%= render('viz_ones/grouping') %>
+
+        <% # Filter -%>
+        <%= render('viz_ones/filter') %>
+
+        <% # The page controller -%>
+        <%= render('viz_ones/controls') %>
+
+        <% # The right side panel -%>
+        <div class="plot">
+          <div id="plot-item-container" class="plot-item">
+            <%= render('viz_ones/plot_item_container') %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

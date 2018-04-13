@@ -1,0 +1,64 @@
+viz_one_white: {
+  measure: "viz one White",
+  year: 2018,
+  start_year: 2018,
+  ethnicity: 'White',
+  sex: 'Male',
+  diabetes_type: 'Type1',
+  deprivation: 8,
+  ccg: 'Southwark',
+  baseline_group: 'ckd stage 1',
+  measure_result: 90.0,
+}
+
+viz_one_asian: {
+  measure: "viz one Asian",
+  year: 2018,
+  start_year: 2018,
+  ethnicity: 'Asian or Asian British',
+  sex: 'Male',
+  diabetes_type: 'Type2',
+  deprivation: 8,
+  ccg: 'Southwark',
+  baseline_group: 'ckd stage 2',
+  measure_result: 90.0,
+}
+
+viz_one_black: {
+  measure: "viz one Black",
+  year: 2018,
+  start_year: 2018,
+  ethnicity: 'Black or Black British',
+  sex: 'Male',
+  diabetes_type: 'GDM',
+  deprivation: 8,
+  ccg: 'Lambeth',
+  baseline_group: 'ckd stage 1',
+  measure_result: 90.0,
+}
+
+viz_one_mixed: {
+  measure: "viz one Mixed",
+  year: 2018,
+  start_year: 2018,
+  ethnicity: 'Mixed',
+  sex: 'Female',
+  diabetes_type: 'Type1',
+  deprivation: 8,
+  ccg: 'Southwark',
+  baseline_group: 'ckd stage 3',
+  measure_result: 90.0,
+}
+
+viz_one_other: {
+  measure: "viz one Other",
+  year: 2018,
+  start_year: 2018,
+  ethnicity: 'Other Ethnic Groups',
+  sex: 'Female',
+  diabetes_type: 'Other',
+  deprivation: 8,
+  ccg: 'Lambeth',
+  baseline_group: 'ckd stage 2',
+  measure_result: 90.0,
+}
