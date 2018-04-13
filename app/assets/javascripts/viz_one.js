@@ -13,7 +13,6 @@ $(document).ready(function() {
       type: 'post',
       data: form.serialize(),
       success: function(response) {
-        console.log('success!');
         $('#plot-item-container').html(response.html);
       }
     })
