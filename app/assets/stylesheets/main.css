@@ -6,10 +6,6 @@ body {
   font-family: sans-serif;
 }
 
-label {
-	font-size: 20px;
-}
-
 header{
 	display: block;
 	border: solid 1px lightgrey;
@@ -28,9 +24,26 @@ header h1 {
 }
 
 input[type=text]{
-	font-size: 20px;
+	font-size: 12px;
 	text-align: right;
 }
+
+h1{
+  font-size: 18px;
+}
+
+h2{
+  font-size: 16px;
+}
+
+h3{
+  font-size: 14px;
+}
+
+label {
+  font-size: 12px;
+}
+
 
 .main{
 	display: block;
@@ -59,7 +72,7 @@ input[type=text]{
 }
 
 .side-bar-item{
-	margin: 15px 15px 0px 15px;
+	margin: 5px 10px 5px 10px;
 	background-color: whitesmoke;
 	padding: 20px;
 	border: solid 1px lightgrey;
@@ -104,8 +117,8 @@ input[type=text]{
 .checkbox-container {
   display: inline-block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 19px;
+  margin-bottom: 5px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -125,8 +138,8 @@ input[type=text]{
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 14px;
+  width: 14px;
   background-color: white;
   border: solid 1px lightgrey;
 }
@@ -155,10 +168,10 @@ input[type=text]{
 
 /* Style the checkmark/indicator */
 .checkbox-container .checkbox-checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
+  left: 5px;
+  top: 2px;
+  width: 2px;
+  height: 4px;
   border: solid white;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
@@ -173,8 +186,8 @@ input[type=text]{
 .radio-container {
     display: inline-block;
     position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
+    padding-left: 19px;
+    margin-bottom: 5px;
     margin-right: 12px;
     cursor: pointer;
     -webkit-user-select: none;
@@ -195,8 +208,8 @@ input[type=text]{
     position: absolute;
     top: 0;
     left: 0;
-    height: 25px;
-    width: 25px;
+    height: 14px;
+    width: 14px;
     background-color: white;
     border: solid 1px lightgrey;
     border-radius: 50%;
@@ -226,8 +239,8 @@ input[type=text]{
 
 /* Style the indicator (dot/circle) */
 .radio-container .radio-checkmark:after {
- 	top: 9px;
-	left: 9px;
+ 	top: 3px;
+	left: 3px;
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
@@ -239,10 +252,9 @@ input[type=text]{
 /* Style buttons */
 .btn {
     background-color: DodgerBlue; /* Blue background */
-    border: solid 5px black; /* Remove borders */
     border-radius: 5px;
     color: white; /* White text */
-    padding: 12px 16px; /* Some padding */
+    padding: 5px 5px; /* Some padding */
     font-size: 16px; /* Set a font size */
     cursor: pointer; /* Mouse pointer on hover */
 }

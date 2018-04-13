@@ -38,3 +38,17 @@
       </div>
     </div>
 </div>
+
+<script>
+  const year_box = document.querySelector('.year-box')
+  const left_arrow = document.querySelector('.control-left')
+  const right_arrow = document.querySelector('.control-right')
+  console.log(left_arrow)
+  left_arrow.addEventListener('click', function(){ 
+    year_box.value > +2009 ? year_box.value-- : year_box.value = year_box.value
+  })
+  right_arrow.addEventListener('click', function(){ 
+    year_box.value < +2016 ? year_box.value++ : year_box.value = year_box.value
+    console.log(year_box.value)
+  })
+</script>
