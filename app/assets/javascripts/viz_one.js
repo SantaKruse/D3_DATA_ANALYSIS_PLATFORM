@@ -10,6 +10,7 @@ $(document).ready(function() {
     filterLists()
   })
 
+  filterLists()
 
   function filterLists() {
     var form = $('#filter_form')
@@ -18,11 +19,16 @@ $(document).ready(function() {
       url: form.attr('action'),
       type: 'post',
       data: form.serialize(),
+      dataType: 'json',
       success: function(response) {
-        $('#plot-item-container').html(response.html);
+        vizOne(response)
       }
     })
   }
+
+  function vizOne(data){
+
+  };
 
 })
 
