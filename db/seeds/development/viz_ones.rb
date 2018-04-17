@@ -12,7 +12,7 @@ def create
       diabetes_type: ['Type 1', 'Type 2', 'GDM', 'Other'].sample,
       deprivation: rand(10),
       ccg: ['Southwark', 'Lambeth'].sample,
-      baseline_group: ['ckd stage 1', 'ckd stage 2', 'ckd stage 3'].sample,
+      baseline_group: ['ckd_stage_1', 'ckd_stage_2', 'ckd_stage_3'].sample,
       hba1c: (rand * 100).round(1),
       egfr: (rand * 100).round(1),
       chol: (rand * 100).round(1),
