@@ -16,8 +16,6 @@ class VizOnesController < ApplicationController
 
   private
 
-  def search_params
-    params.require(:viz_one).permit(:ethnicity, :sex, :diabetes_type, :year)
   end
 
 end
