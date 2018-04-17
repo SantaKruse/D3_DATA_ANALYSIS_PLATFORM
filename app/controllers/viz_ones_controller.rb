@@ -1,7 +1,5 @@
 class VizOnesController < ApplicationController
 
-  before_action :set_viz_ones
-
 	def index
 	end
 
@@ -9,15 +7,15 @@ class VizOnesController < ApplicationController
     @viz_ones = VizOne.search(params)
 
     # This is going to render the partial, which will behanlded by viz_one.js
-    render(:json => {
-      :html => render_to_string(:partial => 'viz_ones/plot_item_container'),
-    })
+    respond_to do |format|
+      format.html
+      format.json { render json: @viz_ones }
+    end
+
   end
 
   private
 
-  def set_viz_ones
-    @viz_ones = VizOne.all
   end
 
 end
