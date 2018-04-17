@@ -15,14 +15,13 @@ $(document).ready(function() {
 
   function filterLists() {
     var form = $('#filter_form')
-    console.log('hello ryan')
     $.ajax({
       url: form.attr('action'),
       type: 'post',
       data: form.serialize(),
       dataType: 'json',
       success: function(response) {
-        vizOne(response)
+        console.log(response)
       }
     })
   }

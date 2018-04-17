@@ -2,28 +2,44 @@
   <h2>Grouping</h2>
   <div class="grouping-list">
     <label class="radio-container">Baseline result
-      <input type="radio" checked="checked" name="grouping" id="grouping-baseline" value="BASELINE">
+      <input type="radio" checked="checked" name="grouping" id="grouping-baseline" value="baseline_group">
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Diabetes type
-      <input type="radio" name="grouping" id="grouping-dmt" value="DMT">
+      <input type="radio" name="grouping" id="grouping-dmt" value="diabetes_type">
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Ethnicity
-      <input type="radio" name="grouping" id="grouping-ethnicity" value="ETHNICITY">
+      <input type="radio" name="grouping" id="grouping-ethnicity" value="ethnicity">
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Sex
-      <input type="radio" name="grouping" id="grouping-sex" value="SEX">
+      <input type="radio" name="grouping" id="grouping-sex" value="sex">
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Deprivation decile
-      <input type="radio" name="grouping" id="grouping-deprivation" value="IMD">
+      <input type="radio" name="grouping" id="grouping-deprivation" value="deprivation">
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">GP CCG
-      <input type="radio" name="grouping" id="grouping-gpccg" value="CCG">
+      <input type="radio" name="grouping" id="grouping-gpccg" value="ccg">
       <span class="radio-checkmark"></span>
     </label>
   </div>
 </div>
+
+<!--   create_table "viz_ones", force: :cascade do |t|
+    t.string   "measure"
+    t.integer  "year"
+    t.integer  "start_year"
+    t.string   "ethnicity"
+    t.string   "sex"
+    t.string   "diabetes_type"
+    t.integer  "deprivation"
+    t.string   "ccg"
+    t.string   "baseline_group"
+    t.decimal  "measure_result"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+ -->

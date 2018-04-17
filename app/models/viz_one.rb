@@ -15,14 +15,20 @@
 class VizOne < ApplicationRecord
 
   def self.search(params)
+    puts 'FUKKKKKKKKKKKK'
+    puts params[:y_measure]
     results = self
+    results = results.select("AVG('viz_ones'.'#{params[:y_measure]}') AS y_value, count('viz_ones'.'#{params[:y_measure]}') AS count_value, 'viz_ones'.'baseline_group' AS grouping_value, 'viz_ones'.'#{params[:x_measure]}' AS x_value")
     results = results.where('ethnicity IN (?)', params[:ethnicity]) if params[:ethnicity].present?
     results = results.where('sex IN (?)', params[:sex]) if params[:sex].present?
     results = results.where('diabetes_type IN (?)', params[:diabetes_type]) if params[:diabetes_type].present?
     results = results.where('ccg IN (?)', params[:ccg]) if params[:ccg].present?
     results = results.where('year = (?)', params[:year]) if params[:year].present?
+    results = results.group(params[:grouping])
+    results = results.group('sex')
+
     # If no matched results, return empty array
-    results.is_a?(VizOne::ActiveRecord_Relation) ? results : []
+    results.is_a?(VizOne::ActiveRecord_Relation) ? results : results 
   end
 
 

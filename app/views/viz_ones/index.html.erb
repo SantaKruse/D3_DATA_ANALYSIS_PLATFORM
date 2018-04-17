@@ -20,15 +20,19 @@
     <div class="main">
       <div class="main-flex">
         <% # Side bar items %>
-        <%= render('viz_ones/measure') %>
-        <%= render('viz_ones/grouping') %>
-
-        <% # Filter -%>
+        
+        
+        <div class="side-bar">
         <%= form_tag(search_viz_ones_path, :id => 'filter_form') do %>
+       
+        <%= render('viz_ones/x_measure') %>
+        <%= render('viz_ones/y_measure') %>
+          <%= render('viz_ones/grouping') %>
           <%= render('viz_ones/filter') %>
           <% # The page controller -%>
           <%= render('viz_ones/controls') %>
         <% end %>
+      </div>
         <% # The right side panel -%>
         <div class="plot">
           <div id="plot-item-container" class="plot-item">
