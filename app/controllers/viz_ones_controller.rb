@@ -16,6 +16,4 @@ class VizOnesController < ApplicationController
 
   private
 
-  end
-
 end
