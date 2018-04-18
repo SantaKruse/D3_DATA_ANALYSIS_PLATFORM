@@ -167,6 +167,7 @@ $(document).ready(function() {
         g.selectAll(".result")
           .data(dataset)
           //  function(d){
+
           //   return d.year_value - d.age;
           // })
           .enter()
@@ -209,6 +210,7 @@ $(document).ready(function() {
       });
     };
 
+function populate
 
 function intialised_state(){
   if (!intialised) {
@@ -235,6 +237,7 @@ function prep_plot(data){
   console.log(grouping_data)
   var intialise_data = intialised_state()
   console.log(intialise_data)
+
   plot.call(chart,{
     data: data,
     axis: {
