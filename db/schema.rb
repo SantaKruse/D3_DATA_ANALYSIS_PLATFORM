@@ -12,21 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180419150910) do
 
-  create_table "viz1s", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "measure"
-    t.integer  "year"
-    t.integer  "start_year"
-    t.string   "ethnicity"
-    t.string   "sex"
-    t.string   "diabetes_type"
-    t.integer  "deprivation"
-    t.string   "ccg"
-    t.string   "baseline_group"
-    t.decimal  "measure_result"
-  end
-
   create_table "viz_ones", force: :cascade do |t|
     t.integer  "year"
     t.integer  "start_year"
