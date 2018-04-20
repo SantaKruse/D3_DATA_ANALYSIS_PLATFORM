@@ -114,7 +114,7 @@ $(document).ready(function() {
         return +d.x_measure;
       }));
 
-      y.domain([30,120])
+      y.domain([0,120])
 
       x.domain([0,120])
 
@@ -137,7 +137,7 @@ $(document).ready(function() {
         .enter()
           .append("g")
           .attr("class", function(d){
-            return d;
+            return 'group_' + d;
           })
           .classed("result_group", true);
 
@@ -150,26 +150,25 @@ $(document).ready(function() {
       //exit for g
       this.selectAll(".result_group")
         .data(params.grouping_list, function(d){
-          return d
+          return 'group_' + d
         })
         .exit()
         .remove();
       
       // //loop starting band group
       params.grouping_list.forEach(function(grouping_value){
-        var g = self.selectAll("g." + grouping_value);
+        var g = self.selectAll("g." + "group_" + grouping_value);
         var dataset = params.data.filter(function(d){
           if(d.grouping_value == grouping_value){
             return true;
           }
         });
+
         //enter for result
         g.selectAll(".result")
-          .data(dataset)
-          //  function(d){
-
-          //   return d.year_value - d.age;
-          // })
+          .data(dataset, function(d){
+            return d.id_value;
+          })
           .enter()
             .append("circle")
             .classed("result", true)
@@ -181,10 +180,9 @@ $(document).ready(function() {
         g.selectAll(".result")
           .transition()
           .ease(d3.easeCubic) 
-          .duration(3100)
+          .duration(5000)
           .attr("r", function(d){
-            console.log(d)
-            return responseScale(d.count_value);
+            return 3;
           })
           .attr("cx", function(d){
             return x(+d.x_value);
@@ -193,24 +191,25 @@ $(document).ready(function() {
             return y(+d.y_value);
 
           })
-          // .attr("key", function(d){
-          //   return d.ID;
-          // })
-          .attr("opacity", 0.6);
+          .attr("key", function(d){
+            return d.id_value;
+          })
+          .attr("opacity", 1);
+          
 
+          
+          
 
-      //   //exit for result
-      //   g.selectAll(".result")
-      //     .data(arr, function(d){
-      //       return d.ID;
-      //     })
-      //     .exit()
-      //     .transition().duration(1500).style("opacity", 0)
-      //     .remove();
+        //exit for result
+        g.selectAll(".result")
+          .data(dataset, function(d){
+            return d.id_value;
+          })
+          .exit()
+          .transition().duration(5000).style("opacity", 0)
+          .remove();
       });
     };
-
-function populate
 
 function intialised_state(){
   if (!intialised) {
@@ -232,11 +231,8 @@ function grouping_list(data){
 };
 
 function prep_plot(data){
-  console.log(data)
   var grouping_data = grouping_list(data)
-  console.log(grouping_data)
   var intialise_data = intialised_state()
-  console.log(intialise_data)
 
   plot.call(chart,{
     data: data,
