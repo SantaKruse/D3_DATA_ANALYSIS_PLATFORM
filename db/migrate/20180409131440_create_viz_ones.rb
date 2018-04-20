@@ -2,22 +2,22 @@
 class CreateVizOnes < ActiveRecord::Migration[5.0]
   def up
     create_table :viz_ones do |t|
-      t.string   :measure
+      t.string   :patient_id
       t.integer  :year
-      t.integer  :start_year
       t.string   :ethnicity
       t.string   :sex
       t.string   :diabetes_type
       t.integer  :deprivation
       t.string   :ccg
-      t.string   :baseline_group
-      t.decimal  :measure_result
-
+      t.integer  :age
+      t.decimal  :hba1c
+      t.decimal  :chol
+      t.decimal  :egfr
+      t.decimal  :bmi
+      t.decimal  :bp
       t.timestamps
     end
   end
 
-  def down
-    drop_table :viz_ones
-  end
+
 end

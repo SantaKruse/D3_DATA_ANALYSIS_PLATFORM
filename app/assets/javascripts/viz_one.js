@@ -42,7 +42,7 @@ $(document).ready(function() {
   var intialised
 
   $(document)
-  .on('change', '.filter_checkbox, .year-box', function() {
+  .on('change', '.input_radio, .input_checkbox, .year-box', function() {
     filterLists()
   })
 
@@ -167,7 +167,7 @@ $(document).ready(function() {
         //enter for result
         g.selectAll(".result")
           .data(dataset, function(d){
-            return d.id_value;
+            return d.patient_id;
           })
           .enter()
             .append("circle")
@@ -180,9 +180,9 @@ $(document).ready(function() {
         g.selectAll(".result")
           .transition()
           .ease(d3.easeCubic) 
-          .duration(5000)
+          .duration(2000)
           .attr("r", function(d){
-            return 3;
+            return 5;
           })
           .attr("cx", function(d){
             return x(+d.x_value);
@@ -203,10 +203,10 @@ $(document).ready(function() {
         //exit for result
         g.selectAll(".result")
           .data(dataset, function(d){
-            return d.id_value;
+            return d.patient_id;
           })
           .exit()
-          .transition().duration(5000).style("opacity", 0)
+          .transition().duration(2000).style("opacity", 0)
           .remove();
       });
     };
@@ -233,6 +233,7 @@ function grouping_list(data){
 function prep_plot(data){
   var grouping_data = grouping_list(data)
   var intialise_data = intialised_state()
+  console.log(data)
 
   plot.call(chart,{
     data: data,

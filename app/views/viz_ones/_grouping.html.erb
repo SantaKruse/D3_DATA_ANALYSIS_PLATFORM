@@ -2,48 +2,32 @@
   <h2>Grouping</h2>
   <div class="grouping-list">
     <label class="radio-container">None
-      <input type="radio" checked="checked" name="grouping" id="grouping-none" value="none">
+      <%= radio_button_tag('grouping', "none", true, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Baseline result
-      <input type="radio" name="grouping" id="grouping-baseline" value="baseline_group">
+      <%= radio_button_tag('grouping', "baseline_result", false, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Diabetes type
-      <input type="radio" name="grouping" id="grouping-dmt" value="diabetes_type">
+      <%= radio_button_tag('grouping', "diabetes_type", false, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Ethnicity
-      <input type="radio" name="grouping" id="grouping-ethnicity" value="ethnicity">
+      <%= radio_button_tag('grouping', "ethnicity", false, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Sex
-      <input type="radio" name="grouping" id="grouping-sex" value="sex">
+      <%= radio_button_tag('grouping', "sex", false, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">Deprivation decile
-      <input type="radio" name="grouping" id="grouping-deprivation" value="deprivation">
+      <%= radio_button_tag('grouping', "deprivation", false, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
     <label class="radio-container">GP CCG
-      <input type="radio" name="grouping" id="grouping-gpccg" value="ccg">
+      <%= radio_button_tag('grouping', "ccg", false, class:'input_radio') %>
       <span class="radio-checkmark"></span>
     </label>
   </div>
 </div>
-
-<!--   create_table "viz_ones", force: :cascade do |t|
-    t.string   "measure"
-    t.integer  "year"
-    t.integer  "start_year"
-    t.string   "ethnicity"
-    t.string   "sex"
-    t.string   "diabetes_type"
-    t.integer  "deprivation"
-    t.string   "ccg"
-    t.string   "baseline_group"
-    t.decimal  "measure_result"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
- -->

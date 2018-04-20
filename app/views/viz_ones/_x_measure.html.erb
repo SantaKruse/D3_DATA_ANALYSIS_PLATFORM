@@ -2,27 +2,27 @@
 	<h2>Measure (x-axis)</h2>
 	<div class="measure-list">
 		<label class="radio-container">Age
-		  <input type="radio" checked="checked" name="x_measure" id="x_measure_age" value="age">
+		  <%= radio_button_tag('x_measure', "age", true, class:'input_radio') %>
 		  <span class="radio-checkmark"></span>
 		</label>
 		<label class="radio-container">HbA1c
-		  <input type="radio" checked="checked" name="y_measure" id="y_measure_hba1c" value="hba1c">
+		  <%= radio_button_tag('x_measure', "hba1c", false, class:'input_radio') %>
 		  <span class="radio-checkmark"></span>
 		</label>
 		<label class="radio-container">Cholesterol
-		  <input type="radio" name="y_measure" id="y_measure_cholesterol" value="chol">
+		  <%= radio_button_tag('x_measure', "chol", false, class:'input_radio') %>
 		  <span class="radio-checkmark"></span>
 		</label>
 		<label class="radio-container">eGFR
-		  <input type="radio" name="y_measure" id="y_measure_egfr" value="egfr">
+		  <%= radio_button_tag('x_measure', "egfr", false, class:'input_radio') %>
 		  <span class="radio-checkmark"></span>
 		</label>
 		<label class="radio-container">BMI
-		  <input type="radio" name="y_measure" id="y_measure_bmi" value="bmi">
+		  <%= radio_button_tag('x_measure', "bmi", false, class:'input_radio') %>
 		  <span class="radio-checkmark"></span>
 		</label>
 		<label class="radio-container">BP
-		  <input type="radio" name="y_measure" id="y_measure_bp" value="bp">
+		  <%= radio_button_tag('x_measure', "bp", false, class:'input_radio') %>
 		  <span class="radio-checkmark"></span>
 		</label>
 	</div>

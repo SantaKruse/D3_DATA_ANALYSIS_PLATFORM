@@ -16,7 +16,7 @@ class VizOne < ApplicationRecord
     sql_select_grouping = if params[:grouping] == "none"
                             "'#{params[:grouping]}' AS grouping_value"
                           else
-                            "TB1.#{params[:grouping]} AS grouping_value" 
+                            "REPLACE(TB1.#{params[:grouping]}, ' ', '_') AS grouping_value" 
                           end  
 
     sql_from = 
