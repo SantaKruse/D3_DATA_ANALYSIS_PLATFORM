@@ -28,7 +28,9 @@ class VizOne < ApplicationRecord
         AND TB1.SEX IN ('#{params[:sex].join("','")}')
         AND TB1.YEAR = #{params[:year]}
         AND TB1.DIABETES_TYPE IN ('#{params[:diabetes_type].join("','")}')"  
-
+        AND TB1.#{params[:x_measure]} IS NOT NULL
+        AND TB1.#{params[:y_measure]} IS NOT NULL"
+  
     sql_complete = sql_select + ", " + sql_select_grouping + " " + sql_from + " " + sql_where
         
     results = self.find_by_sql(sql_complete)
