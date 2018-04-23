@@ -167,7 +167,7 @@ $(document).ready(function() {
         //enter for result
         g.selectAll(".result")
           .data(dataset, function(d){
-            return d.patient_id;
+            return d.id_value;
           })
           .enter()
             .append("circle")
@@ -203,7 +203,7 @@ $(document).ready(function() {
         //exit for result
         g.selectAll(".result")
           .data(dataset, function(d){
-            return d.patient_id;
+            return d.id_value;
           })
           .exit()
           .transition().duration(2000).style("opacity", 0)
