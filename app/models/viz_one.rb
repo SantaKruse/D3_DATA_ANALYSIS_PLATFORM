@@ -7,7 +7,7 @@ class VizOne < ApplicationRecord
 
     sql_select = 
         "SELECT 
-            'id_' || TB1.ID AS id_value
+            'patient_id AS id_value
             , '#{params[:x_measure]}' AS x_name
             , TB1.#{params[:x_measure]} as x_value
             , '#{params[:y_measure]}' AS y_name
