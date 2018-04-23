@@ -103,20 +103,35 @@ $(document).ready(function() {
           .attr("transform", "translate(0,-24)")
           .text("");  
       }
+      else{
+        x.domain([0,d3.max(params.data, function(d){
+          return +d.x_value * 1.1;
+        })]);
+        y.domain([0,d3.max(params.data, function(d){
+          return +d.y_value * 1.1;
+        })]);
+
+        d3.select(".x.axis")
+        .transition()
+        .call(xAxis);
+        d3.select(".y.axis")
+        .transition()
+        .call(yAxis);
+      }
     };
 
 
     function plot(params){
       //set starting bands
       var self = this;
-      //set domains
-      x.domain(d3.extent(params.data, function(d){
-        return +d.x_measure;
-      }));
 
-      y.domain([0,120])
+      x.domain([0,d3.max(params.data, function(d){
+        return +d.x_value * 1.1;
+      })]);
+      y.domain([0,d3.max(params.data, function(d){
+        return +d.y_value * 1.1;
+      })]);
 
-      x.domain([0,120])
 
       responseScale.domain(d3.extent(params.data,function(d){
         return +d.count_value;
