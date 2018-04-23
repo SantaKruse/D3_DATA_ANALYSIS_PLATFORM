@@ -1,5 +1,4 @@
 namespace :import do
-  desc "TODO"
   task task1: :environment do
   	require 'csv'    
 		CSV.foreach("/db/imports/csvfile.csv", :headers => true) do |row|
