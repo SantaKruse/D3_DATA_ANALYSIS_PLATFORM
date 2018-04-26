@@ -20,15 +20,14 @@ ActiveRecord::Schema.define(version: 20180409131440) do
     t.string   "diabetes_type"
     t.integer  "deprivation"
     t.string   "ccg"
-    t.decimal  "measure_result"
     t.integer  "age"
     t.decimal  "hba1c"
     t.decimal  "chol"
     t.decimal  "egfr"
     t.decimal  "bmi"
     t.decimal  "bp"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end

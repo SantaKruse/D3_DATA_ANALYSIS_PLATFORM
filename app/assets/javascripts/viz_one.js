@@ -104,20 +104,23 @@ $(document).ready(function() {
           .text("");  
       }
       else{
-        x.domain([0,d3.max(params.data, function(d){
-          return +d.x_value * 1.1;
-        })]);
-        y.domain([0,d3.max(params.data, function(d){
-          return +d.y_value * 1.1;
-        })]);
+        x.domain(params.extents.extentX);
+        y.domain(params.extents.extentY);
 
         d3.select(".x.axis")
         .transition()
-        .call(xAxis);
+        .call(params.axis.x);
         d3.select(".y.axis")
         .transition()
-        .call(yAxis);
-      }
+        .call(params.axis.y);
+
+        d3.select(".gridline.x")
+        .transition()
+        .call(params.axis.gridLines.x);
+        d3.select(".gridline.y")
+        .transition()
+        .call(params.axis.gridLines.y);
+      };
     };
 
 
@@ -125,13 +128,8 @@ $(document).ready(function() {
       //set starting bands
       var self = this;
 
-      x.domain([0,d3.max(params.data, function(d){
-        return +d.x_value * 1.1;
-      })]);
-      y.domain([0,d3.max(params.data, function(d){
-        return +d.y_value * 1.1;
-      })]);
-
+      x.domain(params.extents.extentX);
+      y.domain(params.extents.extentY);
 
       responseScale.domain(d3.extent(params.data,function(d){
         return +d.count_value;
@@ -212,9 +210,6 @@ $(document).ready(function() {
           .attr("opacity", 1);
           
 
-          
-          
-
         //exit for result
         g.selectAll(".result")
           .data(dataset, function(d){
@@ -246,9 +241,14 @@ function grouping_list(data){
 };
 
 function prep_plot(data){
+  console.log(data)
   var grouping_data = grouping_list(data)
   var intialise_data = intialised_state()
-  console.log(data)
+  var extent_data = {age:[0,100], hba1c: [20,160], chol: [0,10], egfr: [0,200], bmi: [10,60], bp: [80,200]}
+  var xVal = data[0].x_name
+  var yVal = data[0].y_name
+  var extentArrayX = extent_data[xVal]
+  var extentArrayY = extent_data[yVal]
 
   plot.call(chart,{
     data: data,
@@ -261,6 +261,10 @@ function prep_plot(data){
       }
     },
     grouping_list: grouping_data,
+    extents: {
+      extentX: extentArrayX,
+      extentY: extentArrayY
+    },
     intialise: intialise_data
   });   
 };

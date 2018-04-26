@@ -7,7 +7,7 @@ class VizOne < ApplicationRecord
 
     sql_select = 
         "SELECT 
-            'TB1.PATIENT_ID AS id_value
+            TB1.PATIENT_ID AS id_value
             , '#{params[:x_measure]}' AS x_name
             , TB1.#{params[:x_measure]} as x_value
             , '#{params[:y_measure]}' AS y_name
@@ -27,7 +27,7 @@ class VizOne < ApplicationRecord
         TB1.ETHNICITY IN ('#{params[:ethnicity].join("','")}')
         AND TB1.SEX IN ('#{params[:sex].join("','")}')
         AND TB1.YEAR = #{params[:year]}
-        AND TB1.DIABETES_TYPE IN ('#{params[:diabetes_type].join("','")}')"  
+        AND TB1.DIABETES_TYPE IN ('#{params[:diabetes_type].join("','")}')  
         AND TB1.#{params[:x_measure]} IS NOT NULL
         AND TB1.#{params[:y_measure]} IS NOT NULL"
   
