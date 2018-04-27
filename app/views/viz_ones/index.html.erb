@@ -23,21 +23,17 @@
         
         
         <div class="side-bar">
-        <%= form_tag(search_viz_ones_path, :id => 'filter_form') do %>
-       
-        <%= render('viz_ones/x_measure') %>
-        <%= render('viz_ones/y_measure') %>
-          <%= render('viz_ones/grouping') %>
-          <%= render('viz_ones/filter') %>
-          <% # The page controller -%>
-          <%= render('viz_ones/controls') %>
-        <% end %>
-      </div>
+          <%= form_tag(search_viz_ones_path, :id => 'filter_form') do %>
+            <%= render('viz_ones/x_measure') %>
+            <%= render('viz_ones/y_measure') %>
+            <%= render('viz_ones/grouping') %>
+            <%= render('viz_ones/filter') %>
+            <%= render('viz_ones/controls') %>
+          <% end %>
+        </div>
         <% # The right side panel -%>
-        <div class="plot">
-          <div id="plot-item-container" class="plot-item">
-            <%= render('viz_ones/plot_item_container') %>
-          </div>
+        <div class="plot">  
+          <%= render('viz_ones/plot_item_container') %>
         </div>
       </div>
     </div>

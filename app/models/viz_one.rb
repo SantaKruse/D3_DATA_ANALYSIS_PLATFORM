@@ -1,34 +1,41 @@
-# Schema
-# t.string   "measure"
-# t.integer  "year"
-# t.integer  "start_year"
-# t.string   "ethnicity"
-# t.string   "sex"
-# t.string   "diabetes_type"
-# t.integer  "deprivation"
-# t.string   "ccg"
-# t.string   "baseline_group"
-# t.decimal  "measure_result"
-# t.datetime "created_at",     null: false
-# t.datetime "updated_at",     null: false
 
 class VizOne < ApplicationRecord
 
   def self.search(params)
-    puts 'FUKKKKKKKKKKKK'
-    puts params[:y_measure]
-    results = self
-    results = results.select("AVG('viz_ones'.'#{params[:y_measure]}') AS y_value, count('viz_ones'.'#{params[:y_measure]}') AS count_value, 'viz_ones'.'baseline_group' AS grouping_value, 'viz_ones'.'#{params[:x_measure]}' AS x_value")
-    results = results.where('ethnicity IN (?)', params[:ethnicity]) if params[:ethnicity].present?
-    results = results.where('sex IN (?)', params[:sex]) if params[:sex].present?
-    results = results.where('diabetes_type IN (?)', params[:diabetes_type]) if params[:diabetes_type].present?
-    results = results.where('ccg IN (?)', params[:ccg]) if params[:ccg].present?
-    results = results.where('year = (?)', params[:year]) if params[:year].present?
-    results = results.group(params[:grouping])
-    results = results.group('sex')
 
-    # If no matched results, return empty array
-    results.is_a?(VizOne::ActiveRecord_Relation) ? results : results 
+    puts params
+
+    sql_select = 
+        "SELECT 
+            TB1.PATIENT_ID AS id_value
+            , '#{params[:x_measure]}' AS x_name
+            , TB1.#{params[:x_measure]} as x_value
+            , '#{params[:y_measure]}' AS y_name
+            , TB1.#{params[:y_measure]} as y_value"
+
+    sql_select_grouping = if params[:grouping] == "none"
+                            "'#{params[:grouping]}' AS grouping_value"
+                          else
+                            "REPLACE(TB1.#{params[:grouping]}, ' ', '_') AS grouping_value" 
+                          end  
+
+    sql_from = 
+        "FROM VIZ_ONES TB1"
+
+    sql_where = 
+        "WHERE 
+        TB1.ETHNICITY IN ('#{params[:ethnicity].join("','")}')
+        AND TB1.SEX IN ('#{params[:sex].join("','")}')
+        AND TB1.YEAR = #{params[:year]}
+        AND TB1.DIABETES_TYPE IN ('#{params[:diabetes_type].join("','")}')  
+        AND TB1.#{params[:x_measure]} IS NOT NULL
+        AND TB1.#{params[:y_measure]} IS NOT NULL"
+  
+    sql_complete = sql_select + ", " + sql_select_grouping + " " + sql_from + " " + sql_where
+        
+    results = self.find_by_sql(sql_complete)
+
+
   end
 
 

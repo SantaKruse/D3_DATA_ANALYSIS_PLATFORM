@@ -1,0 +1,13 @@
+.axis path,
+.axis line{
+ fill:none;
+ stroke:black;
+ shape-rendering: crispEdges;
+}
+.gridline path,
+.gridline line{
+ fill:none;
+ stroke:black;
+ shape-rendering: crispEdges;  
+ opacity:0.2;
+}

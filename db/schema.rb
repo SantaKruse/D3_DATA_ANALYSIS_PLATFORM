@@ -10,40 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180417134933) do
-
-  create_table "viz1s", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.string   "measure"
-    t.integer  "year"
-    t.integer  "start_year"
-    t.string   "ethnicity"
-    t.string   "sex"
-    t.string   "diabetes_type"
-    t.integer  "deprivation"
-    t.string   "ccg"
-    t.string   "baseline_group"
-    t.decimal  "measure_result"
-  end
+ActiveRecord::Schema.define(version: 20180409131440) do
 
   create_table "viz_ones", force: :cascade do |t|
+    t.string   "patient_id"
     t.integer  "year"
-    t.integer  "start_year"
     t.string   "ethnicity"
     t.string   "sex"
     t.string   "diabetes_type"
     t.integer  "deprivation"
     t.string   "ccg"
-    t.string   "baseline_group"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
     t.integer  "age"
     t.decimal  "hba1c"
     t.decimal  "chol"
     t.decimal  "egfr"
     t.decimal  "bmi"
     t.decimal  "bp"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
